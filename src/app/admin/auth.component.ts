@@ -14,11 +14,8 @@ export class AuthComponent {
   constructor(private router: Router, private auth: AuthService) {}
 
   authenticate(form: NgForm) {
-    console.log('auth called with form')
     if (form.valid) {
-      console.log('valid form')
       this.auth.authenticate(this.username, this.password).subscribe((response) => {
-        console.log(`response: ${response}`)
         if (response) {
           this.router.navigateByUrl('/admin/main')
         }
